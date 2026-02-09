@@ -67,7 +67,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.5")
 
     // WebRTC (Añadir implementación real o mock)
-    implementation("org.webrtc:google-webrtc:1.0.32006")
+    implementation("io.getstream:stream-webrtc-android:1.1.3")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
