@@ -42,7 +42,6 @@ class IncomingCallActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Vincular servicio para controlar la llamada
         Intent(this, CallService::class.java).also { intent ->
             bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
         }
@@ -84,26 +83,24 @@ fun IncomingCallScreen(
 ) {
     var countdown by remember { mutableStateOf(5) }
 
-    // Lógica de auto-respuesta
     LaunchedEffect(Unit) {
         while (countdown > 0) {
             delay(1000)
             countdown--
         }
-        onAccept() // Auto-contestar
+        onAccept()
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF0F172A)), // Fondo oscuro alto contraste
+            .background(Color(0xFF0F172A)),
         contentAlignment = Alignment.Center
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(32.dp)
         ) {
-            // Avatar grande
             Box(
                 modifier = Modifier
                     .size(150.dp)
@@ -135,7 +132,7 @@ fun IncomingCallScreen(
             if (countdown > 0) {
                 Text(
                     text = "Auto-contestando en $countdown",
-                    color = Color(0xFF2DD4BF), // Color Teal brillante
+                    color = Color(0xFF2DD4BF),
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium
                 )
@@ -145,7 +142,6 @@ fun IncomingCallScreen(
                 horizontalArrangement = Arrangement.spacedBy(48.dp),
                 modifier = Modifier.padding(top = 32.dp)
             ) {
-                // Botón Colgar
                 FloatingActionButton(
                     onClick = onReject,
                     modifier = Modifier.size(80.dp),
@@ -160,7 +156,6 @@ fun IncomingCallScreen(
                     )
                 }
 
-                // Botón Contestar
                 FloatingActionButton(
                     onClick = onAccept,
                     modifier = Modifier.size(80.dp),
