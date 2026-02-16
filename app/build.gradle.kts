@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.abutel.app"
-        minSdk = 26 // Android 8.0+ para soporte moderno
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -63,10 +63,13 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     
+    // Material Icons Extended (contiene CallEnd y otros iconos)
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+    
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.5")
 
-    // WebRTC (Añadir implementación real o mock)
+    // WebRTC
     implementation("io.getstream:stream-webrtc-android:1.1.3")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
